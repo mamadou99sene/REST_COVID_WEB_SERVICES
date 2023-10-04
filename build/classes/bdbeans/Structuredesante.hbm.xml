@@ -24,7 +24,7 @@
         <property name="typetest" type="string">
             <column length="100" name="typetest"/>
         </property>
-        <set fetch="select" inverse="true" lazy="true" name="rendezvouses" table="rendezvous">
+        <set fetch="select" inverse="true" lazy="false" name="rendezvouses" table="rendezvous">
             <key>
                 <column name="id_structuresante" not-null="true"/>
             </key>
