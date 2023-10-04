@@ -4,6 +4,7 @@ package bdbeans;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.OneToMany;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -18,6 +19,7 @@ public class Utilisateur implements java.io.Serializable {
 	private String email;
 	private String phone;
 	private String password;
+	@OneToMany(mappedBy="utilisateur")
 	private Set rendezvouses = new HashSet(0);
 
 	public Utilisateur() {
