@@ -3,11 +3,9 @@ package bdbeans;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.naming.InitialContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
-import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,7 +24,6 @@ public class RendezvousHome {
 	private static final Log log = LogFactory.getLog(Rendezvous.class);
 Session session;
 	private static final SessionFactory sessionFactory= hibernate.sessionfactory.open.SessionFactoryProvider.getSessionFactory();
-    
 	protected SessionFactory getSessionFactory() {
 	try {
 		return sessionFactory;
