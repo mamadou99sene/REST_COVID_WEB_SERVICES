@@ -1,4 +1,5 @@
 package controller;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
@@ -41,7 +42,7 @@ public class UtilisateurController {
 		 userHome.persist(u);
 	}
 	@Path("{idUtilisateur}")
-	@POST
+	@DELETE
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void deleteUser(@PathParam("idUtilisateur")int iduser, Utilisateur u)
 	{
@@ -53,7 +54,7 @@ public class UtilisateurController {
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void update(@PathParam("id") int idUtilisateur, Utilisateur u)
 	{
-		u=userHome.findUserByID(idUtilisateur);
+		//u=userHome.findUserByID(idUtilisateur);
 		userHome.update(u);
 	}
 
