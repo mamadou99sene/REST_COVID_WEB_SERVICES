@@ -4,8 +4,10 @@ import java.util.List;
 
 import bdbeans.Structuredesante;
 import bdbeans.StructuredesanteHome;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -39,7 +41,7 @@ public class StructuredeSanteController {
 		
 	}
 	@Path("{id}")
-	@POST
+	@DELETE
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void delete(@PathParam("id")int id,Structuredesante structure)
 	{
@@ -47,11 +49,11 @@ public class StructuredeSanteController {
 		structSanteHome.delete(structure);
 	}
 	@Path("{idStructure}")
-	@POST
+	@PUT
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void update(@PathParam("idStructure")int id,Structuredesante structure)
 	{
-		structure=structSanteHome.findStructuredeSanteByID(id);
+		//structure=structSanteHome.findStructuredeSanteByID(id);
 		structSanteHome.update(structure);
 	}
 
