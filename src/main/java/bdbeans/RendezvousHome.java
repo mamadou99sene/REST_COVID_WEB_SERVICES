@@ -71,7 +71,7 @@ Session session;
 		//crit.add(Restrictions.eq("categorie", "Rendezvous".trim()));
 			@SuppressWarnings("rawtypes")
 			List l=crit.list();
-			session.close();
+			//session.close();
 		    List<Rendezvous> res=(ArrayList<Rendezvous>)l;
 
 			return  res;
