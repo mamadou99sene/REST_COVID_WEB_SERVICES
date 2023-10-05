@@ -4,8 +4,10 @@ import java.util.List;
 
 import bdbeans.Rendezvous;
 import bdbeans.RendezvousHome;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -38,7 +40,7 @@ public class RendezvousController {
 		rvHome.persist(rv);
 	}
 	@Path("{id}")
-	@POST
+	@DELETE
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void delete(@PathParam("id")int id,Rendezvous rv)
 	{
@@ -46,11 +48,11 @@ public class RendezvousController {
 		rvHome.delete(rv);
 	}
 	@Path("{idRv}")
-	@POST
+	@PUT
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void update(@PathParam("idRv")int idRv,Rendezvous rv)
 	{
-		rv=rvHome.findRendezVousByID(idRv);
+		//rv=rvHome.findRendezVousByID(idRv);
 		rvHome.update(rv);
 	}
 
