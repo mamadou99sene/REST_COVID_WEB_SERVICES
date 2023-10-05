@@ -89,7 +89,7 @@ Session session;
 
 			Rendezvous rv = (Rendezvous)crit.uniqueResult();
 			if (rv==null){session.close();return null;}
-			else {session.close();return rv;}
+			else {/*session.close();*/return rv;}
 		}
 		catch(Exception e) {
 			// Critical errors : database unreachable, etc.
@@ -273,6 +273,5 @@ Session session;
 	    return parking;
 	
 	}
-
 	
 }
