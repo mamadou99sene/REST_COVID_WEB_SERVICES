@@ -79,6 +79,24 @@ Session session;
 			return null;
 		}
 	}
+	public List<Rendezvous> findRvByUtilisateur(Utilisateur u){
+		 session = sessionFactory.openSession();
+
+		try{Criteria crit = session.createCriteria(Rendezvous.class);
+		crit.add(Restrictions.eq("utilisateur", u));
+			@SuppressWarnings("rawtypes")
+			List l=crit.list();
+			//session.close();
+		    List<Rendezvous> res=(ArrayList<Rendezvous>)l;
+
+			return  res;
+		}
+		catch(Exception e) {
+			// Critical errors : database unreachable, etc.
+			session.close();
+			return null;
+		}
+	}
 	public  Rendezvous  findRendezVousByID(int id){
 		Session session=null;
 		try {
