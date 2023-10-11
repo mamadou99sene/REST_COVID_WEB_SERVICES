@@ -34,6 +34,14 @@ public class UtilisateurController {
 	{
 		return userHome.findUserByID(id);
 	}
+	
+	@Path("{email}")
+	@POST
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Utilisateur getUtilisateurByEmail(@PathParam("email") String email)
+	{
+		return userHome.findIUserByEmail(email);
+	}
 
 	@POST
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
@@ -56,6 +64,13 @@ public class UtilisateurController {
 	{
 		//u=userHome.findUserByID(idUtilisateur);
 		userHome.update(u);
+	}
+	@Path("connexion/{email}/{password}")
+	@POST
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Utilisateur connexion(@PathParam("email")String email,@PathParam("password")String password)
+	{
+		return userHome.connexion(password, email);
 	}
 
 }
