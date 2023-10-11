@@ -36,7 +36,7 @@ Session session;
 	}
 }
 
-	public  Utilisateur connexion(String password) {
+	public  Utilisateur connexion(String password,String email) {
 		Session session=null;
 		if (null == password ) {
 			throw new IllegalArgumentException("Login and password are mandatory. Null values are forbidden.");
@@ -45,6 +45,7 @@ Session session;
 			// create a new criteria
 			Criteria crit = session.createCriteria(Utilisateur.class);
 			crit.add(Restrictions.eq("password", password.trim()));
+			crit.add(Restrictions.and(Restrictions.eq("email", email)));
 			Object o=crit.uniqueResult();
 			if(o!=null) {
 			Utilisateur user = (Utilisateur)o;//sous-classement
@@ -117,7 +118,7 @@ Session session;
 			return null;
 		}
 	}
-	public  Utilisateur findIfEmailExiste(String email) {
+	public  Utilisateur findIUserByEmail(String email) {
 		Session session=null;
 		try {
 			 session = sessionFactory.openSession();
