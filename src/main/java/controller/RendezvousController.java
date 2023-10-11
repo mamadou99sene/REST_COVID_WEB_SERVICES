@@ -4,6 +4,8 @@ import java.util.List;
 
 import bdbeans.Rendezvous;
 import bdbeans.RendezvousHome;
+import bdbeans.Utilisateur;
+import bdbeans.UtilisateurHome;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -54,6 +56,14 @@ public class RendezvousController {
 	{
 		//rv=rvHome.findRendezVousByID(idRv);
 		rvHome.update(rv);
+	}
+	@Path("{emailUtilisateur}")
+	@POST
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public List<Rendezvous> getOneRendezvous(@PathParam("emailUtilisateur")String emailUser)
+	{
+		Utilisateur u=new UtilisateurHome().findIUserByEmail(emailUser);
+		return rvHome.findRvByUtilisateur(u);
 	}
 
 }
