@@ -34,7 +34,6 @@ public class UtilisateurController {
 	{
 		return userHome.findUserByID(id);
 	}
-	
 	@Path("{email}")
 	@POST
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
