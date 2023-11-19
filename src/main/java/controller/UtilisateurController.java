@@ -71,5 +71,64 @@ public class UtilisateurController {
 	{
 		return userHome.connexion(password, email);
 	}
+	@Path("/error")
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getError()
+	{
+		return " This happens because you used a `BuildContext` that does not include the \r\n"
+				+ "provider\r\n"
+				+ "E/flutter (31982): of your choice. There are a few common scenarios:\r\n"
+				+ "E/flutter (31982):\r\n"
+				+ "E/flutter (31982): - You added a new provider in your `main.dart` and performed a hot-reload.\r\n"
+				+ "E/flutter (31982):   To fix, perform a hot-restart.\r\n"
+				+ "E/flutter (31982):\r\n"
+				+ "E/flutter (31982): - The provider you are trying to read is in a different route.\r\n"
+				+ "E/flutter (31982): \r\n"
+				+ "E/flutter (31982):   Providers are \"scoped\". So if you insert of provider inside a route, then\r\n"
+				+ "E/flutter (31982):   other routes will not be able to access that provider.\r\n"
+				+ "E/flutter (31982): \r\n"
+				+ "E/flutter (31982): - You used a `BuildContext` that is an ancestor of the provider you are trying to read.\r\n"
+				+ "E/flutter (31982): \r\n"
+				+ "E/flutter (31982):   Make sure that loginPage is under your MultiProvider/Provider<ProviderCovid>.\r\n"
+				+ "E/flutter (31982):   This usually happens when you are creating a provider and trying to read it immediately.\r\n"
+				+ "E/flutter (31982): \r\n"
+				+ "E/flutter (31982):   For example, instead of:\r\n"
+				+ "E/flutter (31982): \r\n"
+				+ "E/flutter (31982):   ```\r\n"
+				+ "E/flutter (31982):   Widget build(BuildContext context) {\r\n"
+				+ "E/flutter (31982):     return Provider<Example>(\r\n"
+				+ "E/flutter (31982):       create: (_) => Example(),\r\n"
+				+ "E/flutter (31982):       // Will throw a ProviderNotFoundError, because `context` is associated\r\n"
+				+ "E/flutter (31982):       // to the widget that is the parent of `Provider<Example>`\r\n"
+				+ "E/flutter (31982):       child: Text(context.watch<Example>().toString()),\r\n"
+				+ "E/flutter (31982):     );\r\n"
+				+ "E/flutter (31982):   }\r\n"
+				+ "E/flutter (31982):   ```\r\n"
+				+ "E/flutter (31982):\r\n"
+				+ "E/flutter (31982):   consider using `builder` like so:\r\n"
+				+ "E/flutter (31982):\r\n"
+				+ "E/flutter (31982):   ```\r\n"
+				+ "E/flutter (31982):   Widget build(BuildContext context) {\r\n"
+				+ "E/flutter (31982):     return Provider<Example>(\r\n"
+				+ "E/flutter (31982):       create: (_) => Example(),\r\n"
+				+ "E/flutter (31982):       // we use `builder` to obtain a new `BuildContext` that has access \r\n"
+				+ "to the provider\r\n"
+				+ "E/flutter (31982):       builder: (context, child) {\r\n"
+				+ "E/flutter (31982):         // No longer throws\r\n"
+				+ "E/flutter (31982):         return Text(context.watch<Example>().toString());\r\n"
+				+ "E/flutter (31982):       }\r\n"
+				+ "E/flutter (31982):     );\r\n"
+				+ "E/flutter (31982):   }\r\n"
+				+ "E/flutter (31982):   ```\r\n"
+				+ "E/flutter (31982):\r\n"
+				+ "E/flutter (31982): If none of these solutions work, consider asking for help on StackOverflow:\r\n"
+				+ "E/flutter (31982): https://stackoverflow.com/questions/tagged/flutter\r\n"
+				+ "E/flutter (31982):\r\n"
+				+ "E/flutter (31982): #0      Provider._inheritedElementOf (package:provider/src/provider.dart:343:7)\r\n"
+				+ "E/flutter (31982): #1      Provider.of (package:provider/src/provider.dart:293:30)\r\n"
+				+ "E/flutter (31982): #2      loginPage.build.<anonymous closure> (package:client_covid/pages/LoginPage.dart:129:32)\r\n"
+				+ "E/flutter (31982): <asynchronous suspension>";
+	}
 
 }
