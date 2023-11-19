@@ -3,6 +3,8 @@ package bdbeans;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.ManyToOne;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
@@ -68,7 +70,7 @@ public class Rendezvous implements java.io.Serializable {
 	}
 
 	public Date getDate() {
-		return this.date;
+		return new Date(this.date.getTime());
 	}
 
 	public void setDate(Date date) {
@@ -76,7 +78,7 @@ public class Rendezvous implements java.io.Serializable {
 	}
 
 	public Date getHeure() {
-		return this.heure;
+		return new Date(this.heure.getTime());
 	}
 
 	public void setHeure(Date heure) {
