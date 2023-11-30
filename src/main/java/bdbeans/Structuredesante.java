@@ -97,6 +97,10 @@ public class Structuredesante implements java.io.Serializable {
 		this.typetest = typetest;
 	}
 	@XmlTransient
+	//faut pas utilisé a la fois les annotations xmlTransient et jsonIngore car jaxRS scanne a a la 
+	//les annotations jaxB. Donc xmlTransient suffit pour ne pas diffuser une proprité; sinon, on pourrait
+	//supprimer l'annotation xmlRootElement et conserver seulement JsonIgnore dans le ca ou on veut 
+	//seulement repondre en json et ne pas exposer les rendez vous 
 	public Set getRendezvouses() {
 		return this.rendezvouses;
 		
