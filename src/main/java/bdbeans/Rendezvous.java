@@ -68,7 +68,7 @@ public class Rendezvous implements java.io.Serializable {
 	}
 
 	public Date getDate() {
-		return this.date;
+		 return new Date(this.date.getTime());
 	}
 
 	public void setDate(Date date) {
@@ -76,7 +76,7 @@ public class Rendezvous implements java.io.Serializable {
 	}
 
 	public Date getHeure() {
-		return this.heure;
+		 return new Date(this.heure.getTime());
 	}
 
 	public void setHeure(Date heure) {

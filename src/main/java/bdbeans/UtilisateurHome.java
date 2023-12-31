@@ -44,13 +44,17 @@ Session session;
 		try { session = sessionFactory.openSession();
 			// create a new criteria
 			Criteria crit = session.createCriteria(Utilisateur.class);
-			crit.add(Restrictions.eq("password", password.trim()));
-			crit.add(Restrictions.and(Restrictions.eq("email", email)));
+			//crit.add(Restrictions.eq("password", password.trim()));
+			crit.add(Restrictions.eq("email", email));
 			Object o=crit.uniqueResult();
-			if(o!=null) {
+			if(o!=null) 
+			{
 			Utilisateur user = (Utilisateur)o;//sous-classement
-			session.close();
-			return user;
+			if(user.getPassword().equals(password))
+			{
+				session.close();
+				return user;
+			}
 			}
 			else{session.close(); 
 			return null;}
@@ -63,6 +67,7 @@ Session session;
 		/*finally{
 			session.close();
 		}*/
+		return null;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Utilisateur> getAllUser(){

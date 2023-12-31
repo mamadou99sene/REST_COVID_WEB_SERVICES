@@ -80,7 +80,7 @@ public class Utilisateur implements java.io.Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
+@XmlTransient
 	public String getPassword() {
 		return this.password;
 	}
