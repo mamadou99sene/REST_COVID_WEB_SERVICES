@@ -24,9 +24,10 @@ public class Test {
 		{
 			System.out.println(rv.get(i).getTyperendezvous());
 		}*/
-		Rendezvous rv= new RendezvousHome().getRendezvousById(1);
-		System.out.println(rv.getUtilisateur().getPrenom());
+		Rendezvous rv= new RendezvousHome().getRendezvousById(5);
+		rv.setStatus("En cours");
 		new RendezvousHome().update(rv);
+		System.out.print(rv.getStatus());
 		
 	}
 
