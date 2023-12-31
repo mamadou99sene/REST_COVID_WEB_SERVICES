@@ -46,7 +46,7 @@ public class RendezvousController {
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void delete(@PathParam("id")int id,Rendezvous rv)
 	{
-		rv=rvHome.findRendezVousByID(id);
+		//rv=rvHome.findRendezVousByID(id);
 		rvHome.delete(rv);
 	}
 	@Path("{idRv}")
